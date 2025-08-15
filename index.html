@@ -34,7 +34,6 @@
     }
     a.button:hover { opacity: 0.9; }
 
-    /* دکمه‌های بالا */
     .top-btn {
       position: fixed;
       top: 15px;
@@ -56,7 +55,6 @@
     .top-center-btn { left: 50%; transform: translateX(-50%); }
     .top-right-btn { right: 15px; }
 
-    /* پاپ‌آپ */
     .modal {
       display: none;
       position: fixed;
@@ -79,10 +77,6 @@
       position: relative;
       font-size: 16px;
       line-height: 1.7;
-    }
-    .modal-content h2 {
-      margin-top: 0;
-      margin-bottom: 15px;
     }
     .close-btn {
       position: absolute;
@@ -112,16 +106,6 @@
       display: block;
     }
     .rubika-btn:hover { opacity: 0.9; }
-
-    /* فیلد ورودی در پاپ‌آپ کد */
-    #cpInput {
-      padding: 8px;
-      border-radius: 6px;
-      border: none;
-      outline: none;
-      width: 80%;
-      margin-bottom: 12px;
-    }
   </style>
 </head>
 <body>
@@ -130,11 +114,6 @@
   <a href="#" class="top-btn top-left-btn" id="openModalBtn">درباره ما و ادمین‌ها</a>
   <a href="#" class="top-btn top-center-btn" id="channelsBtn">ورود به چنل روبیکا</a>
   <a href="#" class="top-btn top-right-btn" id="buyCpBtn">خرید سی‌پی</a>
-
-  <!-- دکمه کد CP -->
-  <a href="#" class="button" id="cpCodeBtn" style="position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); max-width: 300px;">
-    کد CP
-  </a>
 
   <!-- دکمه پایین -->
   <a href="#" class="button" id="customsBtn" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); max-width: 300px;">
@@ -191,17 +170,6 @@
     </div>
   </div>
 
-  <!-- پاپ‌آپ کد CP -->
-  <div class="modal" id="cpCodeModal">
-    <div class="modal-content">
-      <button class="close-btn" id="closeCpCodeModalBtn">&times;</button>
-      <h2>وارد کردن کد</h2>
-      <input type="text" id="cpInput" placeholder="کد را وارد کنید">
-      <a href="#" id="checkCpBtn" class="rubika-btn">بررسی کد</a>
-      <p id="cpResult" style="margin-top:10px;"></p>
-    </div>
-  </div>
-
   <script>
     // درباره ما
     const modal = document.getElementById('modal');
@@ -223,31 +191,13 @@
     document.getElementById('channelsBtn').onclick = e => { e.preventDefault(); channelsModal.style.display = 'flex'; };
     document.getElementById('closeChannelsModalBtn').onclick = () => channelsModal.style.display = 'none';
 
-    // کد CP
-    const cpCodeModal = document.getElementById('cpCodeModal');
-    document.getElementById('cpCodeBtn').onclick = e => { e.preventDefault(); cpCodeModal.style.display = 'flex'; };
-    document.getElementById('closeCpCodeModalBtn').onclick = () => cpCodeModal.style.display = 'none';
-    document.getElementById('checkCpBtn').onclick = e => {
-      e.preventDefault();
-      const inputVal = document.getElementById('cpInput').value.trim();
-      const result = document.getElementById('cpResult');
-      if (inputVal === '5050h') {
-        result.style.color = 'lightgreen';
-        result.textContent = 'کد معتبر بود لطفا اسکرین شات بگیرین😇';
-      } else {
-        result.style.color = 'red';
-        result.textContent = 'کد اشتباه است ❌';
-      }
-    };
-
     // بستن وقتی بیرون کلیک شد
     window.onclick = e => {
       if (e.target === modal) modal.style.display = 'none';
       if (e.target === customModal) customModal.style.display = 'none';
       if (e.target === buyCpModal) buyCpModal.style.display = 'none';
       if (e.target === channelsModal) channelsModal.style.display = 'none';
-      if (e.target === cpCodeModal) cpCodeModal.style.display = 'none';
     };
   </script>
 </body>
-                                         </html>
+    </html>
